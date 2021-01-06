@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class LoginViewController: UIViewController {
 
     
-    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
     
-    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     @IBOutlet weak var loginButton: UIButton!
@@ -32,11 +34,13 @@ class LoginViewController: UIViewController {
     }
     
     func setUpElements() {
+        self.view.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
+
         errorLabel.alpha = 0
         
-        Utilities.styleTextField(firstNameTextField)
+        Utilities.styleTextField(emailTextField)
         
-        Utilities.styleTextField(lastNameTextField)
+        Utilities.styleTextField(passwordTextField)
         
         Utilities.styleFilledButton(loginButton)
     }
@@ -55,6 +59,39 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginTapped(_ sender: Any) {
+        let emailEmpty = emailTextField.text!.isEmpty
+        let passwordEmpty = passwordTextField.text!.isEmpty
+       
+        if (emailEmpty && passwordEmpty)  {
+            errorLabel.alpha = 1
+            errorLabel.text = "Please fill in your email and password"
+        } else if (emailEmpty) {
+            errorLabel.alpha = 1
+            errorLabel.text = "Please fill in your email"
+        } else if (passwordEmpty) {
+            errorLabel.alpha = 1
+            errorLabel.text = "Please fill in your password"
+        } else {
+
+        
+            
+        // Sign into user
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
+            
+            if error != nil {
+                self.errorLabel.text = error!.localizedDescription
+                self.errorLabel.alpha = 1
+            } else {
+                let homeViewController =  self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as?
+                    HomeViewController
+                 
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+            }
+        }
+        
+        
+     }
     }
     
     

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		3338613A25A58B5A008790C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338613925A58B5A008790C2 /* LoginViewController.swift */; };
 		3338613D25A58B73008790C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338613C25A58B73008790C2 /* HomeViewController.swift */; };
 		3341122C25A59ABC00865CB2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341122B25A59ABC00865CB2 /* Utilities.swift */; };
+		33443FD725A6491100114286 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33443FD625A6491100114286 /* Constants.swift */; };
 		33D81A6E25A618950009E2A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */; };
 		CF4D23DDC2B7B8545B05BF01 /* Pods_Cheapskate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3622A2E58881A3A6D4B3 /* Pods_Cheapskate.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		3338613925A58B5A008790C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3338613C25A58B73008790C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3341122B25A59ABC00865CB2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		33443FD625A6491100114286 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheapskate.debug.xcconfig"; path = "Target Support Files/Pods-Cheapskate/Pods-Cheapskate.debug.xcconfig"; sourceTree = "<group>"; };
 		DEA7EA100AA9623268E07EFF /* Pods-Cheapskate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheapskate.release.xcconfig"; path = "Target Support Files/Pods-Cheapskate/Pods-Cheapskate.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 				DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */,
 				DEA7EA100AA9623268E07EFF /* Pods-Cheapskate.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +84,7 @@
 		3338612025A58AE0008790C2 /* Cheapskate */ = {
 			isa = PBXGroup;
 			children = (
+				33443FD925A6645E00114286 /* Media */,
 				33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */,
 				3341122A25A59AAE00865CB2 /* Helpers */,
 				3338613F25A58B85008790C2 /* View Controllers */,
@@ -111,8 +113,16 @@
 			isa = PBXGroup;
 			children = (
 				3341122B25A59ABC00865CB2 /* Utilities.swift */,
+				33443FD625A6491100114286 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		33443FD925A6645E00114286 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		71423B73277F3815B2413B02 /* Frameworks */ = {
@@ -245,6 +255,7 @@
 				3338613A25A58B5A008790C2 /* LoginViewController.swift in Sources */,
 				3338612425A58AE0008790C2 /* SceneDelegate.swift in Sources */,
 				3338613D25A58B73008790C2 /* HomeViewController.swift in Sources */,
+				33443FD725A6491100114286 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

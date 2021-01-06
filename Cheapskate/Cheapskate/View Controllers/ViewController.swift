@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     }
     
     func setUpElements() {
+        self.view.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
     }
