@@ -35,10 +35,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="EjI-Jz-pB4" firstAttribute="top" secondItem="AXq-GE-TMM" secondAttribute="bottom" constant="40" id="H35-e1-7WI"/>
                                     <constraint firstItem="AXq-GE-TMM" firstAttribute="height" secondItem="EjI-Jz-pB4" secondAttribute="height" id="T0f-0P-QuB"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cheapstake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdB-je-w44">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cheapskate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdB-je-w44">
                                 <rect key="frame" x="162" y="169" width="91" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -269,6 +270,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Kkc-dE-AEw"/>
         <segue reference="UhH-OD-tDG"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -1,0 +1,6 @@
+framework module Pods_Cheapskate {
+  umbrella header "Pods-Cheapskate-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -17,9 +17,12 @@
 		3338613A25A58B5A008790C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338613925A58B5A008790C2 /* LoginViewController.swift */; };
 		3338613D25A58B73008790C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338613C25A58B73008790C2 /* HomeViewController.swift */; };
 		3341122C25A59ABC00865CB2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341122B25A59ABC00865CB2 /* Utilities.swift */; };
+		33D81A6E25A618950009E2A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */; };
+		CF4D23DDC2B7B8545B05BF01 /* Pods_Cheapskate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3622A2E58881A3A6D4B3 /* Pods_Cheapskate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005D3622A2E58881A3A6D4B3 /* Pods_Cheapskate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheapskate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3338611E25A58AE0008790C2 /* Cheapskate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheapskate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3338612125A58AE0008790C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3338612325A58AE0008790C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +35,9 @@
 		3338613925A58B5A008790C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3338613C25A58B73008790C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3341122B25A59ABC00865CB2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheapskate.debug.xcconfig"; path = "Target Support Files/Pods-Cheapskate/Pods-Cheapskate.debug.xcconfig"; sourceTree = "<group>"; };
+		DEA7EA100AA9623268E07EFF /* Pods-Cheapskate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheapskate.release.xcconfig"; path = "Target Support Files/Pods-Cheapskate/Pods-Cheapskate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF4D23DDC2B7B8545B05BF01 /* Pods_Cheapskate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AC02E399BA88BC9855B9F4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */,
+				DEA7EA100AA9623268E07EFF /* Pods-Cheapskate.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		3338611525A58AE0008790C2 = {
 			isa = PBXGroup;
 			children = (
 				3338612025A58AE0008790C2 /* Cheapskate */,
 				3338611F25A58AE0008790C2 /* Products */,
+				0AC02E399BA88BC9855B9F4A /* Pods */,
+				71423B73277F3815B2413B02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +83,7 @@
 		3338612025A58AE0008790C2 /* Cheapskate */ = {
 			isa = PBXGroup;
 			children = (
+				33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */,
 				3341122A25A59AAE00865CB2 /* Helpers */,
 				3338613F25A58B85008790C2 /* View Controllers */,
 				3338612125A58AE0008790C2 /* AppDelegate.swift */,
@@ -95,6 +115,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		71423B73277F3815B2413B02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				005D3622A2E58881A3A6D4B3 /* Pods_Cheapskate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3338613225A58AE2008790C2 /* Build configuration list for PBXNativeTarget "Cheapskate" */;
 			buildPhases = (
+				3ED075ADB2FFF0F047121AF8 /* [CP] Check Pods Manifest.lock */,
 				3338611A25A58AE0008790C2 /* Sources */,
 				3338611B25A58AE0008790C2 /* Frameworks */,
 				3338611C25A58AE0008790C2 /* Resources */,
+				CA30D8B134A6A57C133E2FB6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,12 +183,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				3338612E25A58AE2008790C2 /* LaunchScreen.storyboard in Resources */,
+				33D81A6E25A618950009E2A1 /* GoogleService-Info.plist in Resources */,
 				3338612B25A58AE2008790C2 /* Assets.xcassets in Resources */,
 				3338612925A58AE0008790C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3ED075ADB2FFF0F047121AF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cheapskate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA30D8B134A6A57C133E2FB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cheapskate/Pods-Cheapskate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cheapskate/Pods-Cheapskate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheapskate/Pods-Cheapskate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3338611A25A58AE0008790C2 /* Sources */ = {
@@ -315,6 +388,7 @@
 		};
 		3338613325A58AE2008790C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -333,6 +407,7 @@
 		};
 		3338613425A58AE2008790C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEA7EA100AA9623268E07EFF /* Pods-Cheapskate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
