@@ -73,26 +73,73 @@ class LoginViewController: UIViewController {
             errorLabel.text = "Please fill in your password"
         } else {
 
-        
-            
         // Sign into user
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
             
             if error != nil {
                 self.errorLabel.text = error!.localizedDescription
                 self.errorLabel.alpha = 1
-            } else {
-                let homeViewController =  self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as?
-                    HomeViewController
-                 
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
             }
         }
-        
-        
+            // Check if there is a group
+            let db = Firestore.firestore()
+            db.collection("users").whereField("email", isEqualTo: self.emailTextField.text!)
+                .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error finding group: \(err)")
+                    } else {
+                        // Store data
+                        for document in querySnapshot!.documents {
+                            let dictionary : NSDictionary = document.data() as NSDictionary
+                            User.firstName = dictionary["firstname"] as! String
+                            User.lastName = dictionary["lastname"] as! String
+                            User.email = dictionary["email"] as! String
+                            User.groupId = dictionary["groupid"] as! String
+                            User.uid = dictionary["uid"] as! String
+                            print(User.groupId)
+                        }
+                        
+                        db.collection("groups").whereField("groupid", isEqualTo: User.groupId)
+                            .getDocuments() { (querySnapshot, err) in
+                                if let err = err {
+                                    print("Error getting groupmates \(err)")
+                                } else {
+                                    for document in querySnapshot!.documents {
+                                        let dictionary : NSDictionary = document.data() as NSDictionary
+                                        // Don't want to mark ourselves as part of the group
+                                        let member1 = dictionary["member1"] as! String
+                                        let member2 = dictionary["member2"] as! String
+                                        let member3 = dictionary["member3"] as! String
+                                        let member4 = dictionary["member4"] as! String
+                                        
+                                        if member1 != User.uid {
+                                            User.group.append(member1)
+                                        }
+                                        if member2 != User.uid {
+                                            User.group.append(member2)
+                                        }
+                                        if member3 != User.uid {
+                                            User.group.append(member3)
+                                        }
+                                        if member4 != User.uid {
+                                            User.group.append(member4)
+                                        }
+                                    }
+                                    
+                                }
+                        }
+                    }
+            }
+            // Now we have to save the group locally
+            self.transitionToHome()
      }
     }
-    
+    func transitionToHome() {
+        let homeViewController =  self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as?
+            HomeViewController
+         
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
     
 }
