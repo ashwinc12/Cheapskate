@@ -41,12 +41,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheapskate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlo-0Z-HGu">
-                                <rect key="frame" x="40" y="144" width="334" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.icloud" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DKC-Tf-PoX">
+                                <rect key="frame" x="40" y="45" width="334" height="401.5"/>
+                                <color key="tintColor" red="0.10980392160000001" green="0.3803921569" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="405" id="93H-lc-hJZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,9 +55,9 @@
                             <constraint firstItem="pa6-Rd-mYG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="6iH-bx-JEP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pa6-Rd-mYG" secondAttribute="bottom" constant="40" id="8kI-9D-mhl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pa6-Rd-mYG" secondAttribute="trailing" constant="40" id="HFn-WX-gev"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rlo-0Z-HGu" secondAttribute="trailing" constant="40" id="NwS-t8-khR"/>
-                            <constraint firstItem="rlo-0Z-HGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="QMR-VT-cPb"/>
-                            <constraint firstItem="rlo-0Z-HGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="udY-Gp-9i4"/>
+                            <constraint firstItem="DKC-Tf-PoX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="QCY-M3-j9q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DKC-Tf-PoX" secondAttribute="trailing" constant="40" id="VFV-zr-rY4"/>
+                            <constraint firstItem="DKC-Tf-PoX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zA8-t3-PwR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NJE-tu-V1A"/>
@@ -67,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="76"/>
+            <point key="canvasLocation" x="798.55072463768124" y="75.669642857142847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dka-fe-uS7">
@@ -372,6 +373,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="checkmark.icloud" catalog="system" width="128" height="88"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

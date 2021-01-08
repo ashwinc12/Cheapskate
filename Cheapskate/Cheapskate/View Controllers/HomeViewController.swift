@@ -1,7 +1,6 @@
 import UIKit
 import FirebaseAuth
 import Firebase
-import PopupDialog
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,15 +21,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func onRefresh(_ sender: Any) {
         data.removeAll()
+        position.removeAll()
+        item.removeAll()
         loadData()
     }
     @IBAction func addButton(_ sender: Any) {
-    }
-    
-    func popUp() {
-        let popup = PopupDialog(title: nil, message: nil)
-        
-        self.present(popup, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -82,6 +77,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
                 
     func loadData() {
+        
         let db = Firestore.firestore()
         
         db.collection("groups").whereField("groupid", isEqualTo: user.groupId)
@@ -133,10 +129,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func deleteItem( uid : String, indexPath : Int) -> Bool{
-        if uid != user.uid {
+        if user.uid != uid {
             return false
         }
-        
         let key =  "receipt" + "." + self.item[indexPath]
         let db = Firestore.firestore()
         
