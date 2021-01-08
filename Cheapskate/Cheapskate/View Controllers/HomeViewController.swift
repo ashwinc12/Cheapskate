@@ -1,6 +1,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import PopupDialog
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,10 +22,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         data.removeAll()
         loadData()
     }
+    @IBAction func addButton(_ sender: Any) {
+    }
+    
+    func popUp() {
+        let popup = PopupDialog(title: nil, message: nil)
+        
+        self.present(popup, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         self.view.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
         self.tableView.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
@@ -41,14 +49,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
     }
-    func getSum( groupId : Int, previousSum : Int) -> Bool {
-        
-        return true
-    }
+  
     func findAndUpdateData( id : String) {
         let db = Firestore.firestore()
 
-        db.collection("users").whereField("uid", isEqualTo: id)
+        db.collection("users").whereField("uid", isEqualTo: id).order(by: "firstname")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error finding group: \(err)")
@@ -57,10 +62,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     for document in querySnapshot!.documents {
                         let dictionary : NSDictionary = document.data() as NSDictionary
                         let firstname = dictionary["firstname"] as! String
-                        print(firstname)
                         var currentReceipt = [String: Int]()
                         currentReceipt = dictionary["receipt"] as! Dictionary
-                        print(currentReceipt)
                         for (item, cost) in currentReceipt {
                             let s1 = firstname + ": $" + String(cost)
                             let s2 =  " - " + item

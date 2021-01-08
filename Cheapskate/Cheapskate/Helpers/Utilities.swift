@@ -27,6 +27,7 @@ class Utilities {
         
     }
     
+    
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
@@ -45,6 +46,14 @@ class Utilities {
 
     }
     
+    static func styleSubmitButton(_ button:UIButton) {
+        
+        // Filled rounded corner style
+        button.backgroundColor = UIColor.init(red: 221/255, green: 175/255, blue: 148/255, alpha: 1)
+        button.tintColor = UIColor.white
+        button.layer.cornerRadius = 0.25 * button.bounds.size.width
+
+    }
     static func styleHollowButton(_ button:UIButton) {
         
         // Hollow rounded corner style

@@ -18,6 +18,7 @@
 		3338613D25A58B73008790C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3338613C25A58B73008790C2 /* HomeViewController.swift */; };
 		3341122C25A59ABC00865CB2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3341122B25A59ABC00865CB2 /* Utilities.swift */; };
 		33443FD725A6491100114286 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33443FD625A6491100114286 /* Constants.swift */; };
+		337E812E25A8953A00A12DC2 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E812D25A8953A00A12DC2 /* PopUpViewController.swift */; };
 		33CB8D0A25A6D1E00065F5ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CB8D0925A6D1E00065F5ED /* User.swift */; };
 		33D81A6E25A618950009E2A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */; };
 		CF4D23DDC2B7B8545B05BF01 /* Pods_Cheapskate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3622A2E58881A3A6D4B3 /* Pods_Cheapskate.framework */; };
@@ -38,6 +39,7 @@
 		3338613C25A58B73008790C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3341122B25A59ABC00865CB2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		33443FD625A6491100114286 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		337E812D25A8953A00A12DC2 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		33CB8D0925A6D1E00065F5ED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33D81A6D25A618950009E2A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD62E42A17EC7398A608032F /* Pods-Cheapskate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheapskate.debug.xcconfig"; path = "Target Support Files/Pods-Cheapskate/Pods-Cheapskate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3338613925A58B5A008790C2 /* LoginViewController.swift */,
 				3338613C25A58B73008790C2 /* HomeViewController.swift */,
 				3338612525A58AE0008790C2 /* ViewController.swift */,
+				337E812D25A8953A00A12DC2 /* PopUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				3341122C25A59ABC00865CB2 /* Utilities.swift in Sources */,
 				3338613725A58B44008790C2 /* SignUpViewController.swift in Sources */,
 				3338613A25A58B5A008790C2 /* LoginViewController.swift in Sources */,
+				337E812E25A8953A00A12DC2 /* PopUpViewController.swift in Sources */,
 				33CB8D0A25A6D1E00065F5ED /* User.swift in Sources */,
 				3338612425A58AE0008790C2 /* SceneDelegate.swift in Sources */,
 				3338613D25A58B73008790C2 /* HomeViewController.swift in Sources */,

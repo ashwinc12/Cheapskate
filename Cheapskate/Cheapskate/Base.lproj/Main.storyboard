@@ -262,10 +262,17 @@
                                     <constraint firstAttribute="height" constant="40" id="Z2G-8k-nZx"/>
                                 </constraints>
                                 <state key="normal" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addButton:" destination="B3l-md-suu" eventType="touchUpInside" id="56f-kC-e2K"/>
+                                    <segue destination="UKj-nw-Wkz" kind="popoverPresentation" popoverAnchorView="nDn-mz-C26" id="v1t-xV-2rh">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9ec-y7-Gtc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="homeVC"/>
                         <constraints>
                             <constraint firstItem="nDn-mz-C26" firstAttribute="leading" secondItem="9ec-y7-Gtc" secondAttribute="leading" constant="20" id="0YI-ue-Kdt"/>
                             <constraint firstItem="9lr-Kb-aeu" firstAttribute="top" secondItem="9ec-y7-Gtc" secondAttribute="top" constant="33" id="0lq-LW-OgA"/>
@@ -287,6 +294,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ylm-5X-iBp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2324.6376811594205" y="85.714285714285708"/>
+        </scene>
+        <!--Pop Up View Controller-->
+        <scene sceneID="pSZ-fe-q7r">
+            <objects>
+                <viewController id="UKj-nw-Wkz" customClass="PopUpViewController" customModule="Cheapskate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n0X-UN-0lS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-JM-Zt4">
+                                <rect key="frame" x="40" y="57" width="334" height="165"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWo-pK-0vg">
+                                        <rect key="frame" x="20" y="38" width="97" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="uaP-va-yQ9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cost" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4DW-Zs-3yX">
+                                        <rect key="frame" x="217" y="38" width="97" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="Gs3-1z-veT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFv-FM-F4J">
+                                        <rect key="frame" x="132" y="115" width="70" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="QoR-of-mOe"/>
+                                        </constraints>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="onSubmit:" destination="UKj-nw-Wkz" eventType="touchUpInside" id="QN3-WK-mV3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.38039215686274508" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="4DW-Zs-3yX" firstAttribute="baseline" secondItem="bWo-pK-0vg" secondAttribute="baseline" id="CeY-WG-Inz"/>
+                                    <constraint firstItem="bWo-pK-0vg" firstAttribute="leading" secondItem="KBQ-JM-Zt4" secondAttribute="leading" constant="20" id="DcM-8U-uPL"/>
+                                    <constraint firstItem="bWo-pK-0vg" firstAttribute="top" secondItem="KBQ-JM-Zt4" secondAttribute="top" constant="38" id="Utb-3N-T9R"/>
+                                    <constraint firstItem="XFv-FM-F4J" firstAttribute="centerX" secondItem="KBQ-JM-Zt4" secondAttribute="centerX" id="ggf-K2-Wox"/>
+                                    <constraint firstAttribute="trailing" secondItem="4DW-Zs-3yX" secondAttribute="trailing" constant="20" id="hsh-ZJ-RIW"/>
+                                    <constraint firstAttribute="height" constant="165" id="ihw-D8-tEw"/>
+                                    <constraint firstAttribute="width" constant="334" id="vBY-mU-bnI"/>
+                                    <constraint firstAttribute="bottom" secondItem="XFv-FM-F4J" secondAttribute="bottom" constant="20" id="xdN-Hd-trj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5BV-R1-u8o"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KBQ-JM-Zt4" firstAttribute="leading" secondItem="5BV-R1-u8o" secondAttribute="leading" constant="40" id="ZRs-yH-up0"/>
+                            <constraint firstItem="5BV-R1-u8o" firstAttribute="trailing" secondItem="KBQ-JM-Zt4" secondAttribute="trailing" constant="40" id="dhz-8a-w0s"/>
+                            <constraint firstItem="KBQ-JM-Zt4" firstAttribute="top" secondItem="5BV-R1-u8o" secondAttribute="top" constant="57" id="kpW-mq-TFu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2Be-AD-ffs"/>
+                    <connections>
+                        <outlet property="costTextField" destination="4DW-Zs-3yX" id="9ms-19-HTm"/>
+                        <outlet property="itemTextField" destination="bWo-pK-0vg" id="hmM-ip-96k"/>
+                        <outlet property="submitButton" destination="XFv-FM-F4J" id="9WE-tW-Evs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nro-vn-8lD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3052.1739130434785" y="93.75"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
