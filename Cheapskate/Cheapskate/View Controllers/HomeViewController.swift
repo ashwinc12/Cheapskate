@@ -6,7 +6,9 @@ import PopupDialog
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Data model: These strings will be the data for the table view cells
-    var data: [String] = ["dog"]
+    var data: [String] = []
+    var position: [String] = []
+    var item: [String] = []
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -62,6 +64,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     for document in querySnapshot!.documents {
                         let dictionary : NSDictionary = document.data() as NSDictionary
                         let firstname = dictionary["firstname"] as! String
+                        let id = dictionary["uid"] as! String
                         var currentReceipt = [String: Int]()
                         currentReceipt = dictionary["receipt"] as! Dictionary
                         for (item, cost) in currentReceipt {
@@ -69,6 +72,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                             let s2 =  " - " + item
                             let s3 = s1+s2
                             self.data.append(s3)
+                            self.position.append(id)
+                            self.item.append(item)
                         }
                         self.tableView.reloadData()
                     }
@@ -127,13 +132,42 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("You tapped cell number \(indexPath.row).")
     }
     
+    func deleteItem( uid : String, indexPath : Int) -> Bool{
+        if uid != user.uid {
+            return false
+        }
+        
+        let key =  "receipt" + "." + self.item[indexPath]
+        let db = Firestore.firestore()
+        
+        db.collection("users").whereField("uid", isEqualTo: user.uid)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error finding group: \(err)")
+                } else {
+                    let document = querySnapshot!.documents.first
+                    document!.reference.updateData([
+                        key : FieldValue.delete()
+                                ])
+                    self.position.remove(at: indexPath)
+                    self.item.remove(at: indexPath)
+                    
+                }
+            }
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
-                // remove the item from the data model
-                data.remove(at: indexPath.row)
-
-                // delete the table view row
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                // See if deleting their own item
+                let isOwnItem = deleteItem(uid: position[indexPath.row], indexPath: indexPath.row)
+                
+                if isOwnItem {
+                    // remove the item from the data model
+                    data.remove(at: indexPath.row)
+                    // delete the table view row
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
             }
         }
     
