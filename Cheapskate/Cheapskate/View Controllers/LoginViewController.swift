@@ -9,9 +9,11 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+
 class LoginViewController: UIViewController {
 
-    
+    let defaults = UserDefaults.standard
+
     @IBOutlet weak var emailTextField: UITextField!
     
     
@@ -91,15 +93,16 @@ class LoginViewController: UIViewController {
                         // Store data
                         for document in querySnapshot!.documents {
                             let dictionary : NSDictionary = document.data() as NSDictionary
-                            User.firstName = dictionary["firstname"] as! String
-                            User.lastName = dictionary["lastname"] as! String
-                            User.email = dictionary["email"] as! String
-                            User.groupId = dictionary["groupid"] as! String
-                            User.uid = dictionary["uid"] as! String
-                            print(User.groupId)
+                            user.firstName = dictionary["firstname"] as! String
+                            user.lastName = dictionary["lastname"] as! String
+                            user.email = dictionary["email"] as! String
+                            user.groupId = dictionary["groupid"] as! String
+                            user.uid = dictionary["uid"] as! String
+                            user.receipt = dictionary["receipt"] as! Dictionary
+                            
                         }
                         
-                        db.collection("groups").whereField("groupid", isEqualTo: User.groupId)
+                        db.collection("groups").whereField("groupid", isEqualTo: user.groupId)
                             .getDocuments() { (querySnapshot, err) in
                                 if let err = err {
                                     print("Error getting groupmates \(err)")
@@ -112,17 +115,17 @@ class LoginViewController: UIViewController {
                                         let member3 = dictionary["member3"] as! String
                                         let member4 = dictionary["member4"] as! String
                                         
-                                        if member1 != User.uid {
-                                            User.group.append(member1)
+                                        if member1 != user.uid {
+                                            user.group.append(member1)
                                         }
-                                        if member2 != User.uid {
-                                            User.group.append(member2)
+                                        if member2 != user.uid {
+                                            user.group.append(member2)
                                         }
-                                        if member3 != User.uid {
-                                            User.group.append(member3)
+                                        if member3 != user.uid {
+                                            user.group.append(member3)
                                         }
-                                        if member4 != User.uid {
-                                            User.group.append(member4)
+                                        if member4 != user.uid {
+                                            user.group.append(member4)
                                         }
                                     }
                                     
@@ -130,16 +133,13 @@ class LoginViewController: UIViewController {
                         }
                     }
             }
-            // Now we have to save the group locally
-            self.transitionToHome()
      }
     }
     func transitionToHome() {
-        let homeViewController =  self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as?
-            HomeViewController
-         
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
+//        let homeViewController =  self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as?
+//            HomeViewController
+//
+//        self.view.window?.rootViewController = homeViewController
+//        self.view.window?.makeKeyAndVisible()
     }
-    
 }

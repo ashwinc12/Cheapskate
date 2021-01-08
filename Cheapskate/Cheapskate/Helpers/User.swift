@@ -9,12 +9,17 @@ import Foundation
 
 struct User {
     
-    public static var firstName = ""
-    public static var lastName = ""
-    public static var email = ""
-    public static var groupId = ""
-    public static var uid = ""
-    public static var receipt = [String: Int]()
-    public static var group: [String] = []
+    var firstName = String()
+    var lastName = String()
+    var email = String()
+    var groupId = String()
+    var uid = String()
+    var receipt = [String: Int]()
+    var group: [String] = []
     
+    init() {}
 }
+
+var user = User()
+
+

@@ -125,6 +125,7 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpTapped:" destination="h7a-Mb-21F" eventType="touchUpInside" id="Oat-qO-xKD"/>
+                                            <segue destination="B3l-md-suu" kind="show" id="WgU-cX-Zz0"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2U-t5-dTw">
@@ -193,6 +194,7 @@
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="loginTapped:" destination="6XP-Fs-jZz" eventType="touchUpInside" id="JOf-lM-VNG"/>
+                                            <segue destination="B3l-md-suu" kind="show" id="ccb-XU-009"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRl-Vb-0rP">
@@ -233,20 +235,66 @@
         <!--Home View Controller-->
         <scene sceneID="HtV-CO-egF">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="B3l-md-suu" customClass="HomeViewController" customModule="Cheapskate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B3l-md-suu" customClass="HomeViewController" customModule="Cheapskate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTT-Y4-9n1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="homeViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A18-iw-ZXi">
+                                <rect key="frame" x="0.0" y="117" width="414" height="745"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lr-Kb-aeu">
+                                <rect key="frame" x="330" y="77" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IrY-VX-KmV"/>
+                                    <constraint firstAttribute="width" constant="40" id="pDj-eY-vmn"/>
+                                </constraints>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="onRefresh:" destination="B3l-md-suu" eventType="touchUpInside" id="Ffy-kF-Y69"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDn-mz-C26">
+                                <rect key="frame" x="20" y="77" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="OrU-o0-f89"/>
+                                    <constraint firstAttribute="height" constant="40" id="Z2G-8k-nZx"/>
+                                </constraints>
+                                <state key="normal" image="plus" catalog="system"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9ec-y7-Gtc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nDn-mz-C26" firstAttribute="leading" secondItem="9ec-y7-Gtc" secondAttribute="leading" constant="20" id="0YI-ue-Kdt"/>
+                            <constraint firstItem="9lr-Kb-aeu" firstAttribute="top" secondItem="9ec-y7-Gtc" secondAttribute="top" constant="33" id="0lq-LW-OgA"/>
+                            <constraint firstItem="nDn-mz-C26" firstAttribute="top" secondItem="9ec-y7-Gtc" secondAttribute="top" constant="33" id="9nU-lW-g56"/>
+                            <constraint firstItem="A18-iw-ZXi" firstAttribute="bottom" secondItem="9ec-y7-Gtc" secondAttribute="bottom" id="ICh-J4-owL"/>
+                            <constraint firstItem="9ec-y7-Gtc" firstAttribute="trailing" secondItem="9lr-Kb-aeu" secondAttribute="trailing" constant="44" id="JGT-Wh-H6F"/>
+                            <constraint firstAttribute="trailing" secondItem="A18-iw-ZXi" secondAttribute="trailing" id="LOe-Pz-KuL"/>
+                            <constraint firstItem="A18-iw-ZXi" firstAttribute="leading" secondItem="UTT-Y4-9n1" secondAttribute="leading" id="Xrk-fj-0yh"/>
+                            <constraint firstItem="A18-iw-ZXi" firstAttribute="top" secondItem="9lr-Kb-aeu" secondAttribute="bottom" id="uif-be-IAS"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="LCJ-Or-LK1"/>
+                    <connections>
+                        <outlet property="add" destination="nDn-mz-C26" id="X36-UC-KWd"/>
+                        <outlet property="refreshButton" destination="9lr-Kb-aeu" id="giE-bo-irD"/>
+                        <outlet property="tableView" destination="A18-iw-ZXi" id="Nla-Ut-XyU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ylm-5X-iBp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2324.6376811594205" y="85.714285714285708"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ccb-XU-009"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
