@@ -19,6 +19,11 @@ class PopUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        itemTextField.backgroundColor = .white
+        itemTextField.textColor = .black
+        
+        costTextField.backgroundColor = .white
+        costTextField.textColor = .black
         Utilities.styleSubmitButton(submitButton)
     }
     

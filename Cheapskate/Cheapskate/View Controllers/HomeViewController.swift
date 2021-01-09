@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
+        self.tableView.tintColor = .black
         self.tableView.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
         Utilities.styleSmallButton(self.refreshButton)
         Utilities.styleSmallButton(self.add)
@@ -120,6 +121,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // set the text from the data model
         cell.textLabel?.text = self.data[indexPath.row]
         
+        
         return cell
     }
     
@@ -168,6 +170,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
      func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.black
     }
 
 }

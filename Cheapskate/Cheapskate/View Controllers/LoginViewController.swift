@@ -37,7 +37,15 @@ class LoginViewController: UIViewController {
     
     func setUpElements() {
         self.view.backgroundColor = UIColor.init(red: 232/255, green: 206/255, blue: 191/255, alpha: 1)
+        passwordTextField.textContentType = .password
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.tintColor = .black
 
+        emailTextField.textContentType = .username
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.tintColor = .black
+
+        
         errorLabel.alpha = 0
         
         Utilities.styleTextField(emailTextField)
