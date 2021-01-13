@@ -2,7 +2,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     // Data model: These strings will be the data for the table view cells
     var data: [String] = []
@@ -20,12 +20,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var add: UIButton!
     
     @IBAction func onRefresh(_ sender: Any) {
+        refresh()
+    }
+    
+    public func refresh() {
         data.removeAll()
         position.removeAll()
         item.removeAll()
         loadData()
     }
+    
     @IBAction func addButton(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {
@@ -47,6 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
   
     func findAndUpdateData( id : String) {
         let db = Firestore.firestore()

@@ -34,6 +34,7 @@ class PopUpViewController: UIViewController {
             updateData(item: itemTextField.text!, cost: Int(costTextField.text!) ?? 0)
             
             dismiss(animated: true, completion: nil)
+            
         }
     }
     
